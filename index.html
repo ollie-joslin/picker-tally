@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <title>Daily Orders</title>
 
-  <!-- Mobile friendly -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <style>
@@ -26,25 +25,16 @@
       margin-bottom: 12px;
     }
 
-    input {
-      width: 100%;
-      padding: 10px;
-      font-size: 16px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-    }
-
     .table-wrap {
       border: 1px solid #e5e5e5;
       border-radius: 12px;
       overflow-x: auto;
+      margin-top: 10px;
     }
 
     table {
       border-collapse: collapse;
       width: 100%;
-     /* allows horizontal scroll on phone */
     }
 
     th, td {
@@ -53,8 +43,6 @@
       white-space: nowrap;
       text-align: left;
       font-size: 14px;
-      width: 24px;
-
     }
 
     th {
@@ -67,27 +55,51 @@
     tr:hover {
       background: #f8f8f8;
     }
-
-    .footer {
-      font-size: 12px;
-      color: #666;
-      margin-top: 10px;
-    }
   </style>
 </head>
 
 <body>
 
   <h1>Daily Orders</h1>
-<div class="meta">
-  Last updated: <strong>15 Jan 2026 16:58</strong> · Rows: <strong>11</strong>
-</div>
 
-  {{ GRAND_TOTALS_HTML }}
+  <div class="meta">
+    Last updated: <strong>15 Jan 2026 17:06</strong> · Rows: <strong>11</strong>
+  </div>
 
+  <!-- Totals block injected by Python -->
+  
+    <div style="
+        display:flex;
+        gap:10px;
+        flex-wrap:wrap;
+        margin: 0 0 12px 0;
+    ">
+      <div style="
+          border:1px solid #e5e5e5;
+          border-radius:12px;
+          padding:10px 12px;
+          background:#fafafa;
+          font-size:14px;
+      ">
+        <div style="color:#666; font-size:12px;">Total orders today</div>
+        <div style="font-weight:700; font-size:16px;">188</div>
+      </div>
 
-<div class="table-wrap">
-  <table class="dataframe" id="picker_summary">
+      <div style="
+          border:1px solid #e5e5e5;
+          border-radius:12px;
+          padding:10px 12px;
+          background:#fafafa;
+          font-size:14px;
+      ">
+        <div style="color:#666; font-size:12px;">Total value today</div>
+        <div style="font-weight:700; font-size:16px;">£56,367.31</div>
+      </div>
+    </div>
+    
+
+  <div class="table-wrap">
+    <table class="dataframe" id="picker_summary">
   <thead>
     <tr >
       <th>Picker</th>
@@ -98,8 +110,8 @@
   <tbody>
     <tr>
       <td>Chris C</td>
-      <td>48</td>
-      <td>£6,710.87</td>
+      <td>49</td>
+      <td>£7,009.22</td>
     </tr>
     <tr>
       <td>Toby V</td>
@@ -113,8 +125,8 @@
     </tr>
     <tr>
       <td>Jim C</td>
-      <td>23</td>
-      <td>£5,249.64</td>
+      <td>24</td>
+      <td>£5,412.27</td>
     </tr>
     <tr>
       <td>Michael B</td>
@@ -123,8 +135,8 @@
     </tr>
     <tr>
       <td>Reece M</td>
-      <td>18</td>
-      <td>£2,649.34</td>
+      <td>19</td>
+      <td>£2,921.48</td>
     </tr>
     <tr>
       <td>Mark D</td>
@@ -153,20 +165,7 @@
     </tr>
   </tbody>
 </table>
-</div>
-
-  <script>
-    const search = document.getElementById("search");
-    const table = document.querySelector("table");
-    const rows = table ? table.tBodies[0].rows : [];
-
-    search.addEventListener("input", function () {
-      const q = this.value.toLowerCase();
-      rows.forEach(row => {
-        row.style.display = row.innerText.toLowerCase().includes(q) ? "" : "none";
-      });
-    });
-  </script>
+  </div>
 
 </body>
 </html>
